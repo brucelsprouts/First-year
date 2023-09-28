@@ -25,7 +25,6 @@ password = input("Enter a password: ")
 
 valid, reason = is_valid_password(password)
 
-# Display the result
 if valid:
     print("Password is valid.")
 else:
