@@ -7,6 +7,9 @@ bli232
 10/2/2023
 """
 
+#Print out code header
+print("Project One <01> - Part C : The Moore the Merrier")
+
 # Function to calculate FLOPS (Floating-Point Operations Per Second)
 def calculate_flops(transistors):
     return transistors * 50  # Assuming each transistor results in 50 FLOPS
@@ -41,8 +44,6 @@ for _ in range(num_years // 2):
     current_transistors *= 2
     current_year += 2
 
-#Print out completion of code
+#Print out completion of code and personal information
 print("END: Project One <01> – Part A")
-
-#Print out name and western username
-print("Bruce Lin blin232")
+print("Bruce Lin blin232 251368377")

@@ -7,6 +7,9 @@ bli232
 10/2/2023
 """
 
+#Print out code header
+print("Project One <01> - Part B : Prime Choice")
+
 # Function to check if a number is prime
 def is_prime(number):
     if number <= 1:
@@ -43,8 +46,6 @@ for number in range(from_range, to_range + 1):
     if is_prime(number):
         print(f"{number}: Prime")
 
-#Print out completion of code
+#Print out completion of code and personal information
 print("END: Project One <01> – Part A")
-
-#Print out name and western username
-print("Bruce Lin blin232")
+print("Bruce Lin blin232 251368377")
