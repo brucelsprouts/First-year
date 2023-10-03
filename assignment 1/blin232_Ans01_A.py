@@ -30,5 +30,5 @@ for i in range(2, end_number + 1):
     print(f"{i}: {next_term} {next_term:,}")
 
 #Print out completion of code and personal information
-print("END: Project One <01> – Part A")
+print("\nEND: Project One <01> – Part A")
 print("Bruce Lin blin232 251368377")
