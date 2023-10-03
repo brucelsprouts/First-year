@@ -1,5 +1,5 @@
 #Prompt the user to enter the number of values they want to use
-n = int(input("How many numbers do you want to use today?"))
+n = int(input("How many numbers do you want to use today? "))
 
 if n > 0:
     #Prompt the user to enter the first number
@@ -24,13 +24,11 @@ if n > 0:
         elif current > largest:
             largest = current
 
-    #Calculate and print the average of the values
+    #Calculate and print the values
     print("The average of the values is: ", total / n)
-    #Print the smallest and largest values
     print("The smallest of the values is {}".format(smallest))
     print("The largest of the values is {}".format(largest))
-    #Calculate and print the range of the values
     print("The range of the values is {}".format(largest - smallest))
 else:
-    #If the user entered a non-positive number, inform them that no values will be used
+    #If the user entered a nonpositive number, inform them that no values will be used
     print("You did not want to use any numbers today.")
