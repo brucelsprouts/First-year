@@ -14,8 +14,8 @@ print("Project One <01> - Part A : Fibonacci Sequence")
 end_number = int(input("Sequence ends at: "))
 
 #Print of first 2 hard coded lines
-print(f"0: 0 0")
-print(f"1: 1 1")
+print("0: 0 0")
+print("1: 1 1")
 
 #Initialize the first two terms of the sequence
 a, b = 0, 1
