@@ -1,11 +1,12 @@
-def isMultiple(n):
-    if  n%7==0:
-        return n
-    elif n%3==0:
-        return -1
-    elif n%2==1: 
-        return True
-    else:
-        return False
-
-print(isMultiple(41))
+def myFunction(strings):  
+    count=0  
+    for s in strings:  
+        if len(s) > 2:  
+            count+=1  
+    return count  
+  
+# Create a list of words  
+words=["hello","good","nice","as","at","baseball","absorb"]  
+  
+# Call the function and print the output  
+print(myFunction(words))
