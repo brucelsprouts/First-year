@@ -5,6 +5,8 @@ def start():
         ['9780321125217',"Human on Earth","Jordan P",1,['David','b1','user123']]
     ]
 
+    borrowedISBNs = ["9780321125217"]
+
     while True:
         printMenu()
         user_input = input("Your selection> ").strip().lower()
@@ -12,13 +14,13 @@ def start():
         if user_input in ["1", "a"]:
             add_book(allBooks)
         elif user_input in ["2", "r"]:
-            borrow_books(allBooks)
+            borrow_books(allBooks, borrowedISBNs)
         elif user_input in ["3", "t"]:
-            return_book(allBooks)
+            return_book(allBooks, borrowedISBNs)
         elif user_input in ["4", "l"]:
-            list_books(allBooks)
+            list_books(allBooks, borrowedISBNs)
         elif user_input in ["5", "x"]:
-            exit_program(allBooks)
+            exit_program(allBooks, borrowedISBNs)
         else:
             print("Wrong selection! Please select a valid option.")
             
@@ -83,33 +85,68 @@ def add_book(allBooks):
         if case_number == "case1":
             book_info[0] = isbn_input
             book_info[4] = []
-            allBooks.append(book_info.copy())  # Use a copy of the dictionary
+            allBooks.append(book_info)
             print("A new book is added successfully.")
             break
         elif case_number == "case2":
             break
 
-def borrow_books(allBooks):
+def borrow_books(allBooks, borrowedISBNs):
+    borrower_name = input("Enter the borrower name> ").strip()
+    search_term = input("Search term> ").strip().lower()
+    book_checker = 0
+
+    for book in allBooks:
+        unavailable_check = 0
+        for borrowed in borrowedISBNs:
+            if borrowed == book[0]:
+                unavailable_check += 1
+        if unavailable_check == 0 and search_book(book, search_term) == True:
+            book[4].append(borrower_name)
+            borrowedISBNs.append(book[0])
+            book_checker += 1
+            print(f"-\"{book[1]}\" is borrowed!")
+
+    if book_checker == 0:
+        print("No books were found.")
+
+def search_book(book, search_term):
+    book_name = book[1].lower()
+    search_term = search_term.lower()
+    
+    if search_term.endswith('*'):
+        search_term = search_term[:-1]
+        if search_term in book_name:
+            return True
+    elif search_term.endswith('%'):
+        search_term = search_term[:-1]
+        if book_name.startswith(search_term):
+            return True    
+    elif book_name == search_term:
+        return True
+    return False
+
+def return_book(allBooks, borrowedISBNs):
     return
 
-def return_book(allBooks):
-    return
-
-def list_books(allBooks):
+def list_books(allBooks, borrowedISBNs):
     for book in allBooks:
         print("---------------")
-        if not book[4]:
+        unavaible_check = 0
+        for borrowed in borrowedISBNs:
+            if borrowed == book[0]:
+                unavaible_check += 1
+                print("[Unavailable]")
+        if unavaible_check == 0:
             print("[Available]")
-        else:
-            print("[Unavailable]")
 
         print(f"{book[1]} - {book[2]}")
         print(f"E: {book[3]} ISBN: {book[0]}")
         print(f"Borrowed by: {book[4]}")
 
-def exit_program(allBooks):
+def exit_program(allBooks, borrowedISBNs):
     print("$$$$$$$ FINAL LIST OF BOOKS $$$$$$$$")
-    list_books(allBooks)
+    list_books(allBooks, borrowedISBNs)
     exit()
 
 start()
