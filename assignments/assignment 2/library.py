@@ -4,8 +4,7 @@ def start():
         ['9780134494166',"The Human Body","Dave R",1,[]],
         ['9780321125217',"Human on Earth","Jordan P",1,['David','b1','user123']]
     ]
-
-    borrowedISBNs = ["9780321125217"]
+    borrowedISBNs = []
 
     while True:
         printMenu()
@@ -128,7 +127,7 @@ def search_book(book, search_term):
 
 def return_book(allBooks, borrowedISBNs):
     input_isbn = input("ISBN> ")
-    item_remove = 0
+    borrowed_remove = 0
     book_name = ""
 
     for borrowed in borrowedISBNs:
@@ -136,11 +135,11 @@ def return_book(allBooks, borrowedISBNs):
             for book in allBooks:
                 if book[1] == borrowed:
                     book_name = book[0]
-            item_remove += 1
+            borrowed_remove += 1
             borrowedISBNs.remove(borrowed)
             print(f"\"{book_name}\" is returned.")
     
-    if item_remove == 0:
+    if borrowed_remove == 0:
         print("No book is found!")
 
 def list_books(allBooks, borrowedISBNs):
