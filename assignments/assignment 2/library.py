@@ -127,7 +127,21 @@ def search_book(book, search_term):
     return False
 
 def return_book(allBooks, borrowedISBNs):
-    return
+    input_isbn = input("ISBN> ")
+    item_remove = 0
+    book_name = ""
+
+    for borrowed in borrowedISBNs:
+        if borrowed == input_isbn:
+            for book in allBooks:
+                if book[1] == borrowed:
+                    book_name = book[0]
+            item_remove += 1
+            borrowedISBNs.remove(borrowed)
+            print(f"\"{book_name}\" is returned.")
+    
+    if item_remove == 0:
+        print("No book is found!")
 
 def list_books(allBooks, borrowedISBNs):
     for book in allBooks:
