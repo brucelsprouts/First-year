@@ -41,9 +41,14 @@ def is_valid_isbn(isbn,allBooks):
             print("Invalid ISBN!")
             return "case0"
     
-    isbn_digits = [int(digit) for digit in isbn]
+    isbn_digits = []
+    for digit in isbn:
+        isbn_digits.append(int(digit))
+
     weights = [1, 3, 1, 3, 1, 3, 1, 3, 1, 3, 1, 3, 1]
-    total = sum(weight * digit for weight, digit in zip(weights, isbn_digits))                          ###############
+    total = 0
+    for weight, digit in zip(weights, isbn_digits):
+        total += weight * digit
 
     if total % 10 == 0:
         return "case1"
@@ -84,17 +89,13 @@ def add_book(allBooks):
         elif case_number == "case2":
             break
 
-def search_books(allBooks, earch_term, search_mode):
-    return
-
-def borrow_books(allBooks, borrower_name):
+def borrow_books(allBooks):
     return
 
 def return_book(allBooks):
     return
 
 def list_books(allBooks):
-
     for book in allBooks:
         print("---------------")
         if not book[4]:
