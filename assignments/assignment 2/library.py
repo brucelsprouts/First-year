@@ -1,3 +1,12 @@
+"""
+CS1026a 2023
+Assignment 02 LIBRARY SYSTEM - library.py
+Bruce
+251368377
+bli232
+10/25/2023
+"""
+
 #Start function that runs code
 def start():
     #All books in library
@@ -38,9 +47,9 @@ def printMenu():
     print('5: E(x)it.') 
     print('######################\n')
 
-#Checks if the givin ISBN meets the given criteria
+#Checks if the given ISBN meets the given criteria
 def is_valid_isbn(isbn,allBooks):
-    if len(isbn) != 13 or not isbn.isdigit(): #Charecter length
+    if len(isbn) != 13 or not isbn.isdigit(): #Character length
         print("Invalid ISBN!")
         return "case0" #Invalid input
     
@@ -109,7 +118,7 @@ def borrow_books(allBooks, borrowedISBNs):
     book_checker = 0    #Checker to see if the book was found and borrowed from allBooks
 
     for book in allBooks:   #Checks all books in allBooks
-        unavailable_check = 0   #Cheker for avaibility of book
+        unavailable_check = 0   #Checker for avaibility of book
         for borrowed in borrowedISBNs:  #Checks for each borrowed ISBN in borrowedISBNs to determine if a book is avaiable
             if borrowed == book[0]:
                 unavailable_check += 1  #Checker to say that a book was found to be unaiable
@@ -122,7 +131,7 @@ def borrow_books(allBooks, borrowedISBNs):
     if book_checker == 0:   #If no books were found then say none were found
         print("No books were found.")
 
-#Searchs for book with the search term in allBooks
+#Searches for book with the search term in allBooks
 def search_book(book, search_term):
     book_name = book[1].lower()
     search_term = search_term.lower()
@@ -163,7 +172,7 @@ def list_books(allBooks, borrowedISBNs):
         print("---------------")
 
         #Checks for avaibility of books 
-        unavaible_check = 0
+        unavaible_check = 0     #Chekcer to see if a book was avaible
         for borrowed in borrowedISBNs:
             if borrowed == book[0]:
                 unavaible_check += 1
