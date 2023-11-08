@@ -11,7 +11,6 @@ def read_keywords(keyword_file_name):
         return {}
 
 def clean_tweet_text(tweet_text):
-    # Remove non-English letters and make lowercase
     return ''.join(char.lower() if char.isalpha() or char.isspace() else '' for char in tweet_text)
 
 def calc_sentiment(tweet_text, keyword_dict):
@@ -92,10 +91,8 @@ def make_report(tweet_list, keyword_dict):
     avg_retweet = round(total_sentiment / num_retweet, 2) if num_retweet > 0 else 'NAN'
     avg_sentiment = round(total_sentiment / num_tweets, 2) if num_tweets > 0 else 'NAN'
 
-    # Calculate average sentiment for each country
     avg_country_sentiments = {country: round(sum(sentiments) / len(sentiments), 2)
                               for country, sentiments in country_sentiments.items()}
-    # Sort countries by average sentiment in descending order
     sorted_countries = sorted(avg_country_sentiments.keys(), key=lambda x: avg_country_sentiments[x], reverse=True)
     top_five_countries = ', '.join(sorted_countries[:5])
 
@@ -111,7 +108,6 @@ def make_report(tweet_list, keyword_dict):
         'num_tweets': num_tweets,
         'top_five': top_five_countries
     }
-
     return report
 
 def write_report(report, output_file):
@@ -130,6 +126,3 @@ def write_report(report, output_file):
         print(f"Wrote report to {output_file}")
     except IOError:
         print(f"Could not open file {output_file}")
-
-# Usage:
-# You can call these functions in your main.py script with the appropriate arguments.
