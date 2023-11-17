@@ -11,8 +11,6 @@ This file takes inputs from the user and call the functions in sentiment_analysi
 
 # Import the sentiment_analysis module
 from sentiment_analysis import *
-import traceback
-
 
 # Main function to take inputs
 def main():
@@ -39,7 +37,6 @@ def main():
         write_report(report, report_file_name)
 
     except Exception as e:
-        tb = traceback.format_exc()
-        print(f"{tb}")
+        print(e)
 
 main()
