@@ -18,17 +18,18 @@ def main():
         keyword_file_name = input("Input keyword filename (.tsv file): ")
         if not keyword_file_name.endswith('.tsv'):
             raise Exception("Must have tsv file extension!")
+        
+        keyword_dict = read_keywords(keyword_file_name)
 
         tweet_file_name = input("Input tweet filename (.csv file): ")
         if not tweet_file_name.endswith('.csv'):
             raise Exception("Must have csv file extension!")
+        
+        tweet_list = read_tweets(tweet_file_name)
 
         report_file_name = input("Input filename to output report in (.txt file): ")
         if not report_file_name.endswith('.txt'):
             raise Exception("Must have txt file extension!")
-
-        keyword_dict = read_keywords(keyword_file_name)
-        tweet_list = read_tweets(tweet_file_name)
 
         if not keyword_dict or not tweet_list:
             raise Exception("Tweet list or keyword dictionary is empty!")
