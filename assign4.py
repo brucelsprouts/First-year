@@ -64,7 +64,7 @@ class Inventory:
         return self._inventory[nameProduct]['quantity']
 
     # Display the entire inventory
-    def display_inventory(self):
+    def display_Inventory(self):
         for product, details in self._inventory.items():
             print(f"{product}, {details['price']}, {details['quantity']}")
 
@@ -138,8 +138,10 @@ class ProductCatalog:
 
     # Display the entire product catalog
     def display_catalog(self):
-        for product in self._catalog:
+        sorted_catalog = sorted(self._catalog, key=lambda x: (x.get_price(), x.get_name(), x.get_category()))
+        for product in sorted_catalog:
             print(f"Product: {product.get_name()} Price: {product.get_price()} Category: {product.get_category()}")
+
 
 # Non-class functions for populating inventory and catalog
 # Function to populate the inventory from a file
