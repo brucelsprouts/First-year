@@ -1,3 +1,14 @@
+"""
+CS1026a 2023
+Assignment 04
+Bruce
+251368377
+blin232
+12/8/2023
+
+Virtual shopping cart
+"""
+
 # Product class for defining product attributes and methods
 class Product:
     def __init__(self, name, price, category):
