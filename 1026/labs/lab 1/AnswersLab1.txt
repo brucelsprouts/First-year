@@ -1,0 +1,26 @@
+Answers for Lab 1
+-----------------------------------------------
+
+
+PRE-LAB
+
+1. What javadoc tags will you use to document a method?
+
+@author used to identify the author of the code
+@param used to describe a parameter for a method (use a separate @param line for each parameter)
+@return used to describe the value returned from a method (used only when return type is not void)
+
+EXERCISE 1
+
+2. What happens if in the constructor we do not use the keyword "this"? 
+
+When the same name is used in the parameters as well as variables within the constructor, the "this" prefix differentiates the two variables.
+
+EXERCISE 2
+
+3. What do you expect to be printed out in Step 11 ("Same player" or "Different player")?
+
+Logically speaking same player would be printed but because of the way that the code looks at the data, p1 may have the same information as p2 but because they're not the same thing, Different player will be printed.
+
+
+
